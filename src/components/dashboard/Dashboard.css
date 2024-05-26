@@ -36,3 +36,18 @@ font-size: 30px;
 .link-icon{
   margin-right: 10px;
 }
+
+.btn-submit{
+  width: 100%;
+  background: #1C2434;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  border-radius: 4px;
+  transition: .3s linear;
+  margin-top: 20px;
+}
+.btn-submit:hover{
+  background: #121721;
+}

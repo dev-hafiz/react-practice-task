@@ -9,7 +9,7 @@ import { GrHomeOption } from "react-icons/gr";
 const DashboardLayout = () => {
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-3 dashbaord-left  min-h-screen px-12">
+      <div className="col-span-3  dashbaord-left  min-h-screen px-12">
         <div className="dashboard-logo-wrapper">
           <LuLayoutDashboard className="dashboard-logo" />
           <h3 className="dashboard-title">Dashboard</h3>
