@@ -35,8 +35,8 @@ const EditProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
-          title: "Deleted!",
-          text: `Your product ${data.title} has been deleted.`,
+          title: "Product Edited Successfully!",
+          text: `Your product ${data.title} has been Edited.`,
           icon: "success",
         });
       });

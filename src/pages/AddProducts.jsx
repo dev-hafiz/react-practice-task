@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,11 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          title: "Product Added Successfully!",
+          text: `Your product ${data.title} has been Added.`,
+          icon: "success",
+        });
         form.reset();
       });
   };
@@ -31,63 +38,67 @@ const AddProducts = () => {
       <h1 className="text-5xl font-bold text-center">Add a Product</h1>
 
       <div className="my-16">
-        <form onSubmit={handleSubmit}>
-          <div className="mt-2">
+        {/* form start  */}
+
+        <form onSubmit={handleSubmit} className="w-8/12 mx-auto ">
+          <div className="relative z-0 w-full mb-5 group">
             <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
               name="title"
               placeholder="Title"
+              id="floating_email"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             />
           </div>
-          <div className="mt-2">
+
+          <div className="relative z-0 w-full mb-5 group">
             <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
               name="brand"
               placeholder="Brand"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             />
           </div>
-          <div className="mt-2">
-            <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
-              type="number"
-              name="price"
-              placeholder="Price"
-            />
+          <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              />
+            </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="id"
+                placeholder="ID"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              />
+            </div>
           </div>
-          <div className="mt-2">
-            <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
+          <div className="relative z-0 w-full mb-5 group">
+            <textarea
               type="text"
               name="description"
               placeholder="Description"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             />
           </div>
-          <div className="mt-2">
+          <div className="relative z-0 w-full mb-5 group">
             <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
               name="image_url"
               placeholder="Image URL"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             />
           </div>
-          <div className="mt-2">
-            <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
-              type="text"
-              name="id"
-              placeholder="ID"
-            />
-          </div>
-          <div className="mt-2 flex justify-center items-center">
-            <input
-              className="btn mt-4 w-full bg-red-500 text-white p-4"
-              type="submit"
-              value="Add product"
-            />
-          </div>
+          <button type="submit" className="btn-submit">
+            Submit
+          </button>
         </form>
+
+        {/* form end */}
       </div>
     </div>
   );
