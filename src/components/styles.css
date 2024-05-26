@@ -1,0 +1,29 @@
+.title-brand-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.brand{
+  background: rgb(38, 105, 36);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.shopping-btn{
+  background: rgb(239, 86, 86);
+  color: white;
+  padding: 10px 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.shopping-icon{
+  margin-left: 10px;
+}
