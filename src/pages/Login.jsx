@@ -1,23 +1,23 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import "./Login.css";
+import loginImg from "../assets/LoginImg.png";
+import googleBtn from "../assets/google.png";
 
 const Login = () => {
-  const { signIn, user } = useAuth();
+  const { signIn, user, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location?.state?.from?.pathname || "/";
 
-  const handleSUbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
-    console.log(email, password);
 
     await signIn(email, password);
   };
@@ -29,65 +29,74 @@ const Login = () => {
   }, [user, from, navigate]);
 
   return (
-    <form onSubmit={handleSUbmit} className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+        <div className="text-center ml-6  lg:w-2/4">
+          <div className="login-container">
+            <div className="image-container">
+              <img
+                src={loginImg}
+                className="image animated"
+                alt="login image"
+              />
+            </div>
+            <div className="bubble"></div>
+            <div className="bubble"></div>
+            <div className="bubble"></div>
+            <div className="bubble"></div>
+          </div>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
-                name="email"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                name="password"
-                required
-              />
-            </div>
 
-            <div className="form-control mt-6">
-              <input
-                className="btn bg-red-500 text-white"
-                type="submit"
-                value="Login"
-              />
-            </div>
-            <div className="mt-6">
-              <GoogleLogin />
-            </div>
-            <div className="mt-6">
-              <p>
-                New here?{" "}
-                <Link to="/register" className="text-red-500">
-                  Register
-                </Link>
-              </p>
-            </div>
+        <div className="card shrink-0 w-full max-w-sm ">
+          <h3 className="login-title mt-3">WELCOME BACK!</h3>
+          <p className="login-sub-title">
+            Don’t have an account?{" "}
+            <span className="toggle-text">
+              <Link to="/register">Register</Link>
+            </span>
+          </p>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label className="label">
+                  <span className="lebel-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="example@gmail.com"
+                  className="input-box"
+                  required
+                />
+              </div>
+              <div className="mt-2">
+                <label className="label">
+                  <span className="lebel-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="enter your password"
+                  className="input-box"
+                  required
+                />
+              </div>
+
+              <input className="submit-btn" type="submit" value="Login" />
+            </form>
+          </div>
+          <div className="text-center">
+            <p className="line-design ">or continue with</p>
+          </div>
+
+          <div>
+            <button onClick={googleLogin} className="social-btn">
+              <img src={googleBtn} alt="google login button" />
+            </button>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

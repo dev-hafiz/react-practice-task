@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { logout, user } = useAuth();
 
-  const handleLogout = async()=>{
-    await logout()
-  }
+  const handleLogout = async () => {
+    await logout();
+  };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar px-12 bg-base-100 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,7 +66,9 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to={"/"} className=" logo">
+          Product Hunt
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
