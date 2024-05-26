@@ -26,7 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/products/:id",
-        element: <ProductDetails />,
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/shoes/${params.id}`),
       },
@@ -50,7 +54,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "home",
+        index: true,
         element: (
           <PrivateRoute>
             <Dashboard />

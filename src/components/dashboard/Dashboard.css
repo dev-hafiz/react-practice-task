@@ -1,0 +1,38 @@
+.dashbaord-left {
+  background: #1C2434;
+  color: aliceblue;
+}
+
+.dashboard-logo-wrapper{
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.dashboard-title{
+  font-size: 28px;
+  margin-left: 10px;
+}
+
+.dashboard-logo{
+font-size: 30px;
+}
+
+.dashboard-link{ 
+  width: 100%;
+  color: white;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  transition: .5s linear;
+}
+.dashboard-link:hover  {
+  background: #333a48dc;
+
+}
+.link-icon{
+  margin-right: 10px;
+}
